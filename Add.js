@@ -10,13 +10,12 @@ export default function Add({ navigation, route }) {
 
     const addCharacter = () => {
         const newCharacter = {
-            id: Date.now(), // Unique ID for the new character
+            id: Date.now(),
             name,
             imageUrl,
             rarity,
         };
 
-        // Copy the existing characters object and update the respective array
         const updatedCharacters = {
             ...characters,
             [rarity === 5 ? 'fiveStarCharacters' : 'sixStarCharacters']: [
@@ -25,10 +24,8 @@ export default function Add({ navigation, route }) {
             ]
         };
 
-        // Update the characters state with the new object
         setCharacters(updatedCharacters);
 
-        // Navigate back after adding
         navigation.goBack();
     };
 

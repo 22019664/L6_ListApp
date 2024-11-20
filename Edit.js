@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 export default function Edit({ navigation, route }) {
     const { character, setCharacters, characters } = route.params;
@@ -24,16 +24,32 @@ export default function Edit({ navigation, route }) {
     };
 
     const deleteCharacter = () => {
-        const updatedCharacters = { ...characters };
+        Alert.alert(
+            "Confirm Deletion",
+            "Are you sure you want to delete this character?",
+            [
+                {
+                    text: "Cancel",
+                    style: "cancel",
+                },
+                {
+                    text: "Delete",
+                    style: "destructive",
+                    onPress: () => {
+                        const updatedCharacters = { ...characters };
 
-        if (character.rarity === 5) {
-            updatedCharacters.fiveStarCharacters = updatedCharacters.fiveStarCharacters.filter((item) => item.id !== character.id);
-        } else {
-            updatedCharacters.sixStarCharacters = updatedCharacters.sixStarCharacters.filter((item) => item.id !== character.id);
-        }
+                        if (character.rarity === 5) {
+                            updatedCharacters.fiveStarCharacters = updatedCharacters.fiveStarCharacters.filter((item) => item.id !== character.id);
+                        } else {
+                            updatedCharacters.sixStarCharacters = updatedCharacters.sixStarCharacters.filter((item) => item.id !== character.id);
+                        }
 
-        setCharacters(updatedCharacters);
-        navigation.goBack();
+                        setCharacters(updatedCharacters);
+                        navigation.goBack();
+                    },
+                },
+            ]
+        );
     };
 
     return (

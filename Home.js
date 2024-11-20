@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { fiveStarCharacters, sixStarCharacters } from './characterData'; // You can initialize data here
+import { fiveStarCharacters, sixStarCharacters } from './characterData';
 
 export default function Home({ navigation }) {
-    // Initialize state with 5-star and 6-star characters
     const [characters, setCharacters] = useState({
         fiveStarCharacters,
         sixStarCharacters,
@@ -13,7 +12,6 @@ export default function Home({ navigation }) {
         <View style={styles.container}>
             <Button title="Add Character" onPress={() => navigation.navigate('Add', { setCharacters, characters })} />
 
-            {/* 5-Star Characters Section */}
             <View style={styles.categoryContainer}>
                 <Text style={styles.categoryTitle}>5-Star Characters</Text>
                 <FlatList
@@ -31,7 +29,6 @@ export default function Home({ navigation }) {
                 />
             </View>
 
-            {/* 6-Star Characters Section */}
             <View style={styles.categoryContainer}>
                 <Text style={styles.categoryTitle}>6-Star Characters</Text>
                 <FlatList
