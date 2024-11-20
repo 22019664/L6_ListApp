@@ -1,22 +1,25 @@
-const characterData = [
+export const fiveStarCharacters = [
   {
-    title: '6-star',
-    color: '#FFD700',
-    icon: 'star',
-    data: [
-      { name: 'Mlynar', image: require('./img/mlynar.jpg') },
-      { name: 'Executor the Ex Foedere', image: require('./img/executoralter.jpg') },
-    ],
+    id: 1,
+    name: 'Texas',
+    imageUrl: 'https://ak.gamepress.gg/sites/default/files/2019-10/char_102_texas_1.png',
+    rarity: 5,
+  }
+];
+
+export const sixStarCharacters = [
+  {
+    id: 1,
+    name: 'Exusiai',
+    imageUrl: 'https://ak.gamepress.gg/sites/default/files/2019-10/char_103_angel_1.png',
+    rarity: 6,
   },
   {
-    title: '5-star',
-    color: '#C5A300',
-    icon: 'star',
-    data: [
-      { name: 'Amiya', image: require('./img/amiya.jpg') },
-      { name: 'Lappland', image: require('./img/lappland.jpg') },
-    ],
+    id: 2,
+    name: 'Saria',
+    imageUrl: 'https://ak.gamepress.gg/sites/default/files/2019-10/char_202_demkni_1.png',
+    rarity: 6,
   },
 ];
 
-export default characterData;
+export default { fiveStarCharacters, sixStarCharacters };
